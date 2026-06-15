@@ -39,7 +39,7 @@ const pedidoRepository = {
     read: async (idPedido?: number): Promise<any[]> => {
         let sql = `
         SELECT p.*, i.IdItem_Pedido, i.FK_IdProduto, i.Quantidade, i.Valor
-        FROM Pedidos p
+        FROM pedidos p
         LEFT JOIN Itens_Pedido i ON p.IdPedido = i.FK_IdPedido`;
 
         const params: any[] = [];
