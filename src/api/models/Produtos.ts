@@ -11,17 +11,17 @@ export default class Produto {
 
 
     constructor(
-        idProduto: number | null = null, 
-        idCategoria: number = 0, 
-        nomeProduto: string = '', 
-        descricaoProduto: string = '', 
-        precoProduto: number = 0, 
-        quantidadeEstoque: number = 0, 
-        vinculoImagem: string = '', 
-        dataCad: string, 
+        idProduto: number | null = null,
+        idCategoria: number = 0,
+        nomeProduto: string = '',
+        descricaoProduto: string = '',
+        precoProduto: number = 0,
+        quantidadeEstoque: number = 0,
+        vinculoImagem: string = '',
+        dataCad: string,
         dataMod: string) {
 
-        if(idProduto !== null) this.validarId(idProduto);
+        if (idProduto !== null) this.validarId(idProduto);
         if (idCategoria > 0) this.validarId(idCategoria);
         this.validarNome(nomeProduto);
         this.validarDescricaoProduto(descricaoProduto);
@@ -86,7 +86,7 @@ export default class Produto {
 
     // --- VALIDATIONS METHODS ---
     private validarNome(value: string) {
-        if (value.trim().length < 4 || value.trim().length > 80 || !value || value === undefined || typeof value !== 'string' || value === '') {
+        if (typeof value !== 'string' || value.trim().length < 4 || value.trim().length > 80) {
             throw new Error('O nome do produto deve ser uma frase válida, de 4 a 80 caracteres.');
         }
     }
@@ -114,8 +114,8 @@ export default class Produto {
         }
     }
 
-    private validarQuantidadeEstoque (value: number){
-        if (value === undefined || isNaN(value) || value < 0){
+    private validarQuantidadeEstoque(value: number) {
+        if (value === undefined || isNaN(value) || value < 0) {
             throw new Error('A quantidade no Estoque não pode ser menor do que zero.');
         }
     }
@@ -123,7 +123,7 @@ export default class Produto {
     // --- FACTORY METHODS ---
     static criar(dados: any) {
         return new Produto(
-            dados.idProduto || null, 
+            dados.idProduto || null,
             dados.idCategoria,
             dados.nome,
             dados.descricaoProduto,

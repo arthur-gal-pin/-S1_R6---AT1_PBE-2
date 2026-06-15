@@ -63,6 +63,7 @@ export async function initializeDatabase() {
     console.log("Inicializando o banco de dados e tabelas...");
     try {
         const tempConnection = await mysql.createConnection({
+            
             host: process.env.DB_HOST,
             user: process.env.DB_USER,
             password: process.env.DB_PASSWORD,
