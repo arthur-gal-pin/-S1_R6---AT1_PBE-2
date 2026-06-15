@@ -40,7 +40,7 @@ const pedidoRepository = {
         let sql = `
         SELECT p.*, i.IdItem_Pedido, i.FK_IdProduto, i.Quantidade, i.Valor
         FROM pedidos p
-        LEFT JOIN Itens_Pedido i ON p.IdPedido = i.FK_IdPedido`;
+        LEFT JOIN itens_Pedido i ON p.IdPedido = i.FK_IdPedido`;
 
         const params: any[] = [];
 
